@@ -36,7 +36,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22.13"
       - id: gate
@@ -70,7 +70,7 @@ jobs:
           if ($LASTEXITCODE -ne 0) { throw 'Release source must be on main' }
           if ((git rev-parse HEAD) -cne $env:CI_SHA) { throw 'Checkout does not match the commit checked against main CI' }
       # test.yml の Windows の脚と同じ Node（CI の結果を使うとき、OS・Node・lockfile・commit が CI と同じになる）
-      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: "22.13"
           cache: npm
